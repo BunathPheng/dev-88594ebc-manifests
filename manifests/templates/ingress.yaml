@@ -1,0 +1,21 @@
+---
+# Source: helm for kubernetes/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-88594ebc                  # Ingress name
+  labels:
+    app: dev-88594ebc
+spec:
+  ingressClassName: nginx   # Optional ingressClass
+  rules:
+    - host: "dev-88594ebc.smartops.space"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dev-88594ebc               # Links to Service name dynamically
+                port:
+                  number: 3000  # Links to service port dynamically
